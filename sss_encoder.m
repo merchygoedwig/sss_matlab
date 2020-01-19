@@ -39,5 +39,8 @@ x=[randi(ul);randi(ul)];
 
 y=[m*x(1)+intercept;m*x(2)+intercept];
 
-format='Point 1: (%i,%i)\nPoint 2:(%i,%i)\nThe data you have encoded is %s, encoded as %i\nYou can enter this as raw data into sss_decoder\n[%i %i;%i %i]\n';
+format='Point 1: (%i,%i)\nPoint 2:(%i,%i)\n\nThe data you have encoded is %s, encoded as %i\nYou can enter the following matrix as raw data into sss_decoder:\n\n[%i %i;%i %i]\n';
 fprintf(format,x(1),y(1),x(2),y(2),s,intercept,x(1),y(1),x(2),y(2))
+
+format2="\nOr in base-36, that's: (%s,%s), (%s,%s) with an intercept of %s.\n";
+fprintf(format2,convertCharsToStrings(dec2base(x(1),36)),convertCharsToStrings(dec2base(y(1),36)),convertCharsToStrings(dec2base(x(2),36)),convertCharsToStrings(dec2base(y(2),36)),convertCharsToStrings(dec2base(intercept,36)))
