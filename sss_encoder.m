@@ -1,6 +1,6 @@
 clear all; clc;
 
-s=input('Please input the data you would like to encode: ');
+s=input('Please input the data you would like to encode: ','s');
 
 s=double(s);
 
