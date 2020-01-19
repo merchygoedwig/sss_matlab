@@ -1,6 +1,6 @@
 clear; clc;
 
-input1='Please select (1) to enter data manually, or (2) for data exported from sss_encoder.m: ';
+input1='Please select (1) to enter data manually in decimal, (2) to enter data manually in base-36, or (3) for data exported from sss_encoder.m: ';
 switchprompt=input(input1);
 
 if switchprompt==1
@@ -10,7 +10,14 @@ if switchprompt==1
             x(i)=input(inputx);
             y(i)=input(inputy);
         end
-elseif switchprompt==2        
+elseif switchprompt==2
+        for i=1:2
+            inputx=['Please enter the value of x',num2str(i),': '];
+            inputy=['Please enter the value of y',num2str(i),': '];
+            x(i)=base2dec(input(inputx,'s'),36);
+            y(i)=base2dec(input(inputy,'s'),36);
+        end
+elseif switchprompt==3        
         input2='Please enter data from sss_encoder.m: ';
         xy=input(input2);
         for i=1:2
